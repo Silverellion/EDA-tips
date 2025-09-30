@@ -169,9 +169,7 @@ df_reset.head()
 
 ```python
 df.empty
-
 null_cols = df.columns[df.isnull().all()].tolist()
-
 null_rows = df.index[df.isnull().all(axis=1)].tolist()
 ```
 
@@ -195,9 +193,7 @@ df['age'] = pd.to_numeric(df['age'])
 df['salary'] = pd.to_numeric(df['salary'], errors='coerce')
 
 df['id'] = df['id'].astype(str)
-
 df['count'] = df['count'].astype(int)
-
 df['price'] = df['price'].astype(float)
 
 df['grade'] = df['grade'].astype('category')
@@ -301,39 +297,10 @@ if 'category' in df.columns:
 ### Adding New Columns
 
 ```python
-# Starting with a simple dataframe:
-#    name  age
-# 0  John   25
-# 1  Jane   30
-# 2   Bob   35
-
 df['status'] = 'active'
-# Output:
-#    name  age  status
-# 0  John   25  active
-# 1  Jane   30  active
-# 2   Bob   35  active
-
 df['full_info'] = df['name'] + ' is ' + df['age'].astype(str) + ' years old'
-# Output:
-#    name  age  status              full_info
-# 0  John   25  active   John is 25 years old
-# 1  Jane   30  active   Jane is 30 years old
-# 2   Bob   35  active    Bob is 35 years old
-
 df['age_group'] = np.where(df['age'] >= 30, 'Senior', 'Junior')
-# Output:
-#    name  age  status              full_info age_group
-# 0  John   25  active   John is 25 years old    Junior
-# 1  Jane   30  active   Jane is 30 years old    Senior
-# 2   Bob   35  active    Bob is 35 years old    Senior
-
 df['birth_year'] = 2024 - df['age']
-# Output:
-#    name  age  status              full_info age_group  birth_year
-# 0  John   25  active   John is 25 years old    Junior        1999
-# 1  Jane   30  active   Jane is 30 years old    Senior        1994
-# 2   Bob   35  active    Bob is 35 years old    Senior        1989
 ```
 
 ### Renaming Columns
@@ -415,111 +382,53 @@ df = df.drop_duplicates(keep='last')
 
 ```python
 df = df.sort_index()
-
 df = df.reset_index(drop=True)
-
 df = df.iloc[::-1]
-
 df = df.sample(frac=1).reset_index(drop=True)
 ```
 
 ## Basic Data Cleaning
 
-### Handling Missing Values (Basic)
+### Handling Missing Value
 
 ```python
-# Example dataset with missing values:
-#     name    age  salary
-# 0   John   25.0   50000
-# 1   Jane    NaN   60000  <- Missing age
-# 2   Bob    35.0     NaN  <- Missing salary
-# 3    NaN   28.0   45000  <- Missing name
-
 missing_counts = df.isnull().sum()
-# Output:
-# name      1
-# age       1
-# salary    1
-
 missing_percent = (df.isnull().sum() / len(df)) * 100
-# Output:
-# name      25.0%
-# age       25.0%
-# salary    25.0%
+len(df)
 
-len(df)  # Output: Original rows: 4
 df_no_missing = df.dropna()
 len(df_no_missing)
-# Output: After removing rows with missing values: 1
 
 df_clean = df.dropna(subset=['salary'])
 len(df_clean)
-# Output: Rows after removing missing salaries: 3
 
 df['age'] = df['age'].fillna(0)
 df['name'] = df['name'].fillna('Unknown')
-
-# Output:
-#      name   age  salary
-# 0    John  25.0   50000
-# 1    Jane   0.0   60000  <- Was NaN, now 0
-# 2     Bob  35.0     NaN
-# 3  Unknown 28.0   45000  <- Was NaN, now 'Unknown'
 ```
 
 ### Basic Text Cleaning
 
 ```python
-# Example: Let's say we have messy names like this:
-# Before: ['  john doe  ', 'JANE SMITH', 'bob-johnson', '  ALICE  ']
-
-df['name'].tolist()
-# Output: ['  john doe  ', 'JANE SMITH', 'bob-johnson', '  ALICE  ']
 df['name'] = df['name'].str.strip()
-df['name'].tolist()
-# Output: ['john doe', 'JANE SMITH', 'bob-johnson', 'ALICE']
-
 df['name'] = df['name'].str.lower()
-df['name'].tolist()
-# Output: ['john doe', 'jane smith', 'bob-johnson', 'alice']
-
 df['name'] = df['name'].str.title()
-df['name'].tolist()
-# Output: ['John Doe', 'Jane Smith', 'Bob-Johnson', 'Alice']
-
 df['name'] = df['name'].str.replace('-', ' ')
-df['name'].tolist()
-# Output: ['John Doe', 'Jane Smith', 'Bob Johnson', 'Alice']
-
-# Before: ['John  Doe', 'Jane    Smith', 'Bob     Johnson']
 df['description'] = df['description'].str.replace(r'\s+', ' ', regex=True)
-# After: ['John Doe', 'Jane Smith', 'Bob Johnson']
+
 df['name'].tolist()
 ```
 
 ### Duplicate Handling
 
 ```python
-# Example dataset with duplicates:
-# Row 0: ['John', 25, 50000]
-# Row 1: ['Jane', 30, 60000]
-# Row 2: ['John', 25, 50000]  <- This is a duplicate of Row 0
-# Row 3: ['Bob', 35, 70000]
-
 duplicate_count = df.duplicated().sum()
-# Output: Number of duplicate rows: 1
-
 duplicates = df[df.duplicated(keep=False)]
-# Output shows both Row 0 and Row 2 (both copies of the same data)
-
 len(df)
-# Output: Before removing duplicates: 4
+
 df_clean = df.drop_duplicates()
 len(df_clean)
-# Output: After removing duplicates: 3
 
 df_clean = df.drop_duplicates(subset=['name', 'email'])
-
 df_clean = df.drop_duplicates(keep='last')
 ```
 
@@ -572,30 +481,9 @@ for col in df.columns:
 ### Simple Value Counts
 
 ```python
-# Example: Let's say we have a 'department' column with these values:
-# ['IT', 'HR', 'IT', 'Finance', 'IT', 'HR', 'Marketing', 'IT']
-
 counts = df['department'].value_counts()
-# Output:
-# IT          4
-# HR          2
-# Marketing   1
-# Finance     1
-
 percentages = df['department'].value_counts(normalize=True) * 100
-# Output:
-# IT          50.0%
-# HR          25.0%
-# Marketing   12.5%
-# Finance     12.5%
-
 counts_with_missing = df['department'].value_counts(dropna=False)
-# Output:
-# IT          4
-# HR          2
-# NaN         1  <- This shows missing values too
-# Marketing   1
-# Finance     1
 ```
 
 ### Frequency Analysis
