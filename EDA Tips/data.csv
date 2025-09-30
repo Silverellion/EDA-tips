@@ -1,0 +1,51 @@
+name,age,salary,department,years_experience,city,gender,performance_rating
+John Smith,25,50000,IT,3,New York,Male,4.2
+Jane Doe,30,60000,HR,8,Los Angeles,Female,4.5
+Bob Johnson,35,70000,IT,12,Chicago,Male,4.1
+Alice Brown,28,55000,Finance,5,Houston,Female,4.3
+Charlie Wilson,42,85000,IT,18,Phoenix,Male,4.7
+Diana Davis,33,62000,HR,10,Philadelphia,Female,4.4
+Eve Miller,29,58000,Marketing,6,San Antonio,Female,4.2
+Frank Garcia,38,75000,IT,15,San Diego,Male,4.6
+Grace Rodriguez,26,52000,Finance,4,Dallas,Female,4.0
+Henry Martinez,45,90000,IT,20,San Jose,Male,4.8
+Lisa Anderson,31,64000,HR,9,Austin,Female,4.3
+Mark Thompson,27,56000,Marketing,5,Jacksonville,Male,4.1
+Sarah White,34,68000,Finance,11,San Francisco,Female,4.5
+David Lee,29,59000,IT,7,Columbus,Male,4.2
+Maria Gonzalez,36,72000,Marketing,13,Fort Worth,Female,4.4
+James Clark,24,48000,HR,2,Charlotte,Male,3.9
+Jennifer Lewis,32,66000,Finance,10,Seattle,Female,4.3
+Robert Walker,39,78000,IT,16,Denver,Male,4.6
+Linda Hall,28,57000,Marketing,6,Washington,Female,4.1
+Michael Young,41,82000,Finance,17,Boston,Male,4.7
+Patricia King,30,61000,HR,8,El Paso,Female,4.2
+Christopher Wright,35,73000,IT,14,Detroit,Male,4.5
+Barbara Lopez,27,54000,Marketing,5,Nashville,Female,4.0
+Daniel Hill,33,67000,Finance,11,Memphis,Male,4.3
+Nancy Scott,37,76000,IT,15,Portland,Female,4.6
+Joseph Green,26,51000,HR,4,Oklahoma City,Male,3.8
+Karen Adams,31,63000,Marketing,9,Las Vegas,Female,4.2
+Ryan Baker,28,58000,Finance,6,Louisville,Male,4.1
+Amanda Gonzalez,34,69000,IT,12,Baltimore,Female,4.4
+Kevin Nelson,40,80000,Finance,18,Milwaukee,Male,4.7
+Stephanie Carter,25,49000,HR,3,Albuquerque,Female,3.9
+Brian Mitchell,32,65000,Marketing,10,Tucson,Male,4.3
+Michelle Perez,29,60000,IT,7,Fresno,Female,4.2
+Jason Roberts,36,74000,Finance,13,Sacramento,Male,4.5
+Ashley Turner,30,62000,HR,8,Long Beach,Female,4.1
+Justin Phillips,33,68000,IT,11,Kansas City,Male,4.4
+Megan Campbell,27,55000,Marketing,5,Mesa,Female,4.0
+Brandon Parker,35,71000,Finance,14,Virginia Beach,Male,4.6
+Kayla Evans,31,64000,HR,9,Atlanta,Female,4.3
+Tyler Edwards,28,59000,IT,6,Colorado Springs,Male,4.2
+Rachel Collins,34,70000,Marketing,12,Raleigh,Female,4.5
+Nicholas Stewart,37,77000,Finance,15,Omaha,Male,4.6
+Samantha Sanchez,26,53000,HR,4,Miami,Female,3.9
+Jonathan Morris,32,66000,IT,10,Oakland,Male,4.3
+Nicole Rogers,29,61000,Marketing,7,Minneapolis,Female,4.2
+Aaron Reed,35,72000,Finance,13,Tulsa,Male,4.4
+Brittany Cook,30,63000,HR,8,Cleveland,Female,4.1
+Zachary Morgan,33,69000,IT,11,Wichita,Male,4.5
+Kimberly Bell,28,57000,Marketing,6,Arlington,Female,4.0
+Nathan Murphy,36,75000,Finance,14,New Orleans,Male,4.6
